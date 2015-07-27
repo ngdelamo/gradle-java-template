@@ -1,0 +1,24 @@
+// Declare constants and library dependencies in a single place.
+// Based on: http://stackoverflow.com/questions/9547170/in-gradle-how-do-i-declare-common-dependencies-in-a-single-place
+project.ext.constants = [ // Groovy map literal
+        maven_group : 'net.ngdelamo.library',
+        version_name: '1.0-SNAPSHOT',
+        versions    : [
+                // Versions for dependencies, plugins and tools
+                dagger: '2.0.1',
+                gradle: '2.4',
+                gradle_apt_plugin: '0.3',
+                java  : JavaVersion.VERSION_1_7,
+                junit : '4.12',
+        ],
+]
+
+project.ext.libraries = [ // Groovy map literal
+        dagger2: 'com.google.dagger:dagger:' + constants.versions.dagger,
+        dagger2_compiler: 'com.google.dagger:dagger-compiler:' + constants.versions.dagger,
+
+        // gradle-apt-plugin: see https://github.com/tbroyer/gradle-apt-plugin
+        gradle_apt_plugin: 'net.ltgt.gradle:gradle-apt-plugin:' + constants.versions.gradle_apt_plugin,
+
+        junit: 'junit:junit:' + constants.versions.junit,
+]

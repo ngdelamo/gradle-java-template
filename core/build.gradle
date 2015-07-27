@@ -1,0 +1,13 @@
+apply plugin: 'net.ltgt.apt'
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = constants.versions.java
+targetCompatibility = constants.versions.java
+
+dependencies {
+    testCompile libraries.dagger2
+    testApt libraries.dagger2_compiler
+    testCompile libraries.junit
+}
+

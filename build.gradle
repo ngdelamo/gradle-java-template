@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+
+    apply from: new File(rootDir, 'variables.gradle')
+
+    dependencies {
+        classpath libraries.gradle_apt_plugin
+    }
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = constants.versions.gradle
+}
