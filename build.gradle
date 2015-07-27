@@ -15,14 +15,14 @@ buildscript {
     }
 }
 
-subprojects {
+allprojects {
     repositories {
         mavenCentral()
         mavenLocal()
         jcenter()
     }
-}
 
-task wrapper(type: Wrapper) {
-    gradleVersion = constants.versions.gradle
+    task wrapper(type: Wrapper) {
+        gradleVersion = constants.versions.gradle
+    }
 }

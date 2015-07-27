@@ -1,8 +1,8 @@
 // Declare constants and library dependencies in a single place.
 // Based on: http://stackoverflow.com/questions/9547170/in-gradle-how-do-i-declare-common-dependencies-in-a-single-place
 project.ext.constants = [ // Groovy map literal
-        maven_group : 'net.ngdelamo.library',
-        version_name: '1.0-SNAPSHOT',
+        dist_group : 'net.ngdelamo.library',
+        dist_version: '0.0.1-SNAPSHOT',
         versions    : [
                 // Versions for dependencies, plugins and tools
                 dagger: '2.0.1',

@@ -1,7 +1,14 @@
+apply plugin: 'maven'
 apply plugin: 'net.ltgt.apt'
 apply plugin: 'java'
 apply plugin: 'idea'
 
+// Distribution-related properties
+group = constants.dist_group
+archivesBaseName = project.name
+version = constants.dist_version
+
+// Java-related properties
 sourceCompatibility = constants.versions.java
 targetCompatibility = constants.versions.java
 
@@ -11,3 +18,13 @@ dependencies {
     testCompile libraries.junit
 }
 
+// Install artifacts in the local maven repository
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: mavenLocal().url)
+        }
+
+        mavenInstaller()
+    }
+}
